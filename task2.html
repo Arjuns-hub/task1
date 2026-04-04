@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 🔹 Section 1: Printing & User Interaction
+console.log("Name: Arjun");
+console.log("Designation: Developer");
+
+alert("Welcome to JavaScript Session");
+
+let likeCoding = confirm("Do you like coding?");
+console.log("Do you like coding? ", likeCoding);
+
+let favFood = prompt("Enter your favorite food:");
+console.log("Favorite Food: ", favFood);
+
+document.writeln("Good Evening Team <br><br>");
+
+
+// 🔹 Section 2: Console Methods
+console.log(100);
+console.warn("This is a warning");
+console.error("Something went wrong!");
+console.clear();
+
+
+// 🔹 Section 3: Data Types
+let name = "Arjun";
+console.log(typeof name);
+
+let age = 21;
+console.log(typeof age);
+
+let isStudent = true;
+console.log(isStudent);
+
+let x;
+console.log(x); // undefined
+
+let y = null;
+console.log(y);
+
+
+// 🔹 Section 4: Arrays
+let fruits = ["Apple", "Banana", "Mango", "Orange", "Grapes"];
+console.log(fruits);
+
+console.log("First:", fruits[0]);
+console.log("Last:", fruits[fruits.length - 1]);
+
+fruits.push("Pineapple");
+console.log("After Add:", fruits);
+
+fruits.pop();
+console.log("After Remove:", fruits);
+
+console.log("Length:", fruits.length);
+
+
+// 🔹 Section 5: Objects
+let student = {
+    name: "Arjun",
+    age: 21,
+    course: "BCA",
+    fruits: ["Apple", "Mango", "Banana"]
+};
+
+console.log(student.name);
+
+student.college = "ABC College";
+console.log(student);
+
+console.log(student.fruits[1]);
+
+student.age = 22;
+console.log(student);
+
+
+// 🔹 Section 6: Operators
+let a = 10;
+let b = 5;
+
+console.log("Add:", a + b);
+console.log("Subtract:", a - b);
+console.log("Multiply:", a * b);
+console.log("Divide:", a / b);
+console.log("Remainder:", a % b);
+console.log("Power:", a ** b);
+
+
+// 🔹 Section 7: Increment & Decrement
+let num1 = 5;
+console.log("Post Increment:", num1++);
+console.log("After Post:", num1);
+
+let num2 = 5;
+console.log("Pre Increment:", ++num2);
+
+let num3 = 5;
+console.log("num3++:", num3++);
+console.log("++num3:", ++num3);
+
+let num4 = 10;
+console.log("Decrement:", --num4);
+
+
+// Predict Output
+let p = 5;
+let q = p++;
+let r = ++p;
+
+console.log("p:", p);
+console.log("q:", q);
+console.log("r:", r);
+
+
+// 🔹 Section 8: Real-Time Logic Tasks
+
+// Voting eligibility
+let userAge = prompt("Enter your age:");
+if (userAge >= 18) {
+    console.log("Eligible to vote");
+} else {
+    console.log("Not eligible to vote");
+}
+
+// Greeting
+let userName = prompt("Enter your name:");
+console.log("Hello " + userName);
+
+// Highest marks
+let marks = [80, 95, 60, 70, 90];
+let max = Math.max(...marks);
+console.log("Highest Marks:", max);
+
+// Fruits object
+let fruitCategory = {
+    tropical: ["Mango", "Pineapple"],
+    berries: ["Strawberry", "Blueberry"]
+};
+
+console.log(fruitCategory.tropical[0]);
+console.log(fruitCategory.berries[1]);
+
+// Prompt + Array
+let favFruits = [];
+
+favFruits.push(prompt("Enter fruit 1:"));
+favFruits.push(prompt("Enter fruit 2:"));
+favFruits.push(prompt("Enter fruit 3:"));
+
+console.log("Your favorite fruits:", favFruits);
+    </script>
+</body>
+</html>
