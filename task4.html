@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 4</title>
+</head>
+<body>
+    <script>
+
+
+//  Task 1: E-Commerce Discount System
+
+
+console.log("Task01");
+function calculateDiscount(product, price) {
+  let finalPrice;
+  if (price > 1000) {
+    finalPrice = price - (price * 0.2);
+  } else {
+    finalPrice = price - (price * 0.1);
+  }
+  console.log(`Product: ${product}`);
+  console.log(`Final Price: ${finalPrice}`);
+}
+
+calculateDiscount("Shoes", 2000);
+
+
+// Task 2: Order Processing using Callback
+
+
+console.log("Task02");
+function placeOrder(callback) {
+  console.log("Order placed");
+  callback(500);
+}
+
+function payment(amount) {
+  console.log(`Payment of ${amount} successful`);
+  orderSuccess();
+}
+
+function orderSuccess() {
+  console.log("Order delivered");
+}
+
+placeOrder(payment);
+
+//  Task 3: Employee Data Loop System
+
+
+console.log("Task03");
+let employees = [
+  {name:"Barath", salary:40000},
+  {name:"Jack", salary:60000}
+];
+
+for (let emp of employees) {
+  if (emp.salary > 60000) {
+    console.log(`${emp.name}: High Salary`);
+  } else {
+    console.log(`${emp.name}: Normal Salary`);
+  }
+}
+
+
+// Task 4: Login Attempts (While Loop)
+
+
+console.log("Task04");
+let password = "1234";
+let attempt = 1;
+while (attempt <= 3) {
+  console.log(`Attempt ${attempt}`);
+  if (password === "1234") {
+    console.log("Login success");
+    break;
+  }
+  attempt++;
+}
+
+
+//  Task 5: Coupon Generator (Generator Function)
+
+
+console.log("Task05");
+function* couponGenerator() {
+  yield "10% OFF";
+  yield "20% OFF";
+  yield "Free Delivery";
+  yield "Cashback";
+}
+
+let offers = couponGenerator();
+console.log(offers.next().value);
+console.log(offers.next().value);
+console.log(offers.next().value);
+console.log(offers.next().value);
+
+//  Task 6: Shopping Cart Total (for...of)
+
+
+console.log("Task06");
+let cart = [100, 200, 300, 400];
+let total = 0;
+
+for (let item of cart) {
+  total += item;
+}
+console.log(`Final Amount: ${total}`);
+
+
+// Task 7: User Profile System (for...in)
+
+
+console.log("Task07");
+let user = {
+  name: "Arjun",
+  role: "Developer",
+  location: "India"
+};
+
+for (let key in user) {
+  console.log(`${key} : ${user[key]}`);
+}
+
+//  Task 8: Factory Pattern (Function Reuse)
+
+
+console.log("Task08");
+function createPhone() { return "Phone"; }
+function createBattery() { return "Battery"; }
+function createCharger() { return "Charger"; }
+function createHeadPhone() { return "HeadPhone"; }
+
+function createOrder() {
+  return `Your Order: ${createPhone()} + ${createBattery()} + ${createCharger()}+ ${createHeadPhone()}`;
+}
+
+console.log(createOrder());
+
+// Task 9: College Form with Default Values
+
+
+console.log("Task09");
+function collegeForm(name, department="Not Assigned") {
+  console.log(`Name: ${name}`);
+  console.log(`Department: ${department}`);
+}
+
+collegeForm("Arjun");
+collegeForm("Arun", "Computer Science");
+
+//  Task 10: Currying - EMI Calculator
+
+
+console.log("Task10");
+function emi(P) {
+  return function(R) {
+    return function(T) {
+      return (P * R * T) / 100;
+    }
+  }
+}
+
+console.log(emi(16000)(2)(12));
+
+
+//  Task 11: Even/Odd Analyzer
+
+
+console.log("Task11");
+for (let i = 1; i <= 10; i++) {
+  if (i % 2 === 0) {
+    console.log(`${i} → Even`);
+  } else {
+    console.log(`${i} → Odd`);
+  }
+}
+
+
+//  Task 12: Function Scope Debugging
+
+
+console.log("Task12");
+{
+  var x = 10;   // Accessible outside block
+  let y = 20;   // Block scoped
+  const z = 30; // Block scoped
+}
+console.log(x); // Works
+// console.log(y); // Error
+// console.log(z); // Error
+
+//  Task 13: Real-Time Alert System (IIFE)
+
+
+console.log("Task13");
+(function() {
+  console.log("Flash Sale: 50% OFF on Shirts");
+})();
+
+//  Task 14: Marks Calculator with Return
+
+
+console.log("Task14");
+function marks(m1, m2, m3) {
+  let total = m1 + m2 + m3;
+  let avg = total / 3;
+  return {total, avg};
+}
+
+let result = marks(85, 93, 75);
+console.log(`Total: ${result.total}`);
+console.log(`Average: ${result.avg}`);
+
+
+//  Task 15: Retry Offer System (Generator + Condition)
+
+
+console.log("Task15");
+function* retryOffers() {
+  yield "10% OFF";
+  yield "20% OFF";
+}
+
+let offersRetry = retryOffers();
+let offer;
+
+while (!(offer = offersRetry.next()).done) {
+  console.log(offer.value);
+}
+console.log("All offers expired");
+
+    </script>
+</body>
+</html>
