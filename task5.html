@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+
+    // Task 1: E-commerce Cart System
+
+    let cart1 = [
+  {name: "Shirt", price: 500},
+  {name: "Shoes", price: 1500}
+];
+
+let cart2 = [
+  {name: "Watch", price: 2000}
+];
+
+// Merge carts
+let cart = [...cart1, ...cart2];
+
+// Add new product
+cart.push({name: "Bag", price: 1000});
+
+// Remove last product
+cart.pop();
+
+// Calculate total price
+let total = cart.reduce((sum, item) => sum + item.price, 0);
+
+console.log(cart);
+console.log("Total Price:", total);
+
+//Task 2: User Profile Management
+
+let user = {
+  name: "Naveen",
+  role: "Trainee",
+  salary: 20000
+};
+
+let update = {
+  role: "Developer",
+  salary: 50000
+};
+
+// Merge
+let updatedUser = {...user, ...update};
+
+// Destructure
+let {name, role, salary} = updatedUser;
+
+console.log(`${name} is now a ${role} earning ${salary}`);
+
+//Task 3: Function with Rest Operator (Team Score System)
+
+function teamScore(teamName, ...scores) {
+  console.log("Team:", teamName);
+  console.log("Scores:", scores);
+
+  let total = scores.reduce((sum, s) => sum + s, 0);
+  let highest = Math.max(...scores);
+
+  console.log("Total:", total);
+  console.log("Highest:", highest);
+}
+
+teamScore("Team A", 10, 20, 30, 40);
+
+//Task 4: Nested Data Extraction (API Response Simulation)
+
+let apiData = {
+  user: {
+    name: "Naveen",
+    address: {
+      city: "Bangalore",
+      pincode: 560001
+    }
+  }
+};
+
+// Destructuring (renamed variables)
+let {
+  user: {
+    name: userName,
+    address: { city, pincode }
+  }
+} = apiData;
+
+console.log(`${userName} lives in ${city} - ${pincode}`);
+
+//Task 5: Array Dashboard (Admin Panel)
+
+let users = ["A", "B", "C", "D", "E"];
+
+// Remove C, D and add X, Y
+users.splice(2, 2, "X", "Y");
+
+// First 3 users
+let firstThree = users.slice(0, 3);
+
+// Check if B exists
+let exists = users.includes("B");
+
+// Find index of E
+let index = users.indexOf("E");
+
+console.log(users);
+console.log(firstThree);
+console.log("B exists:", exists);
+console.log("Index of E:", index);
+
+// Task 6: Data Cleaning Tool
+
+let messyData = [1, 2, [3, 4, [5]], null, undefined, "hello"];
+
+// Flatten
+let flatData = messyData.flat(Infinity);
+
+// Remove null & undefined
+let cleanData = flatData.filter(item => item != null);
+
+console.log(cleanData);
+
+// Task 7: Sorting Bug Fix (Real Industry Issue ⚠️)
+
+let prices = [1000, 200, 50, 5000];
+
+// Correct sorting
+prices.sort((a, b) => a - b);
+
+console.log(prices);
+
+//Task 8: Analytics Report Generator
+
+let orders = [
+  {id:1, amount:100},
+  {id:2, amount:200},
+  {id:3, amount:300}
+];
+
+// Total revenue
+let totalRevenue = orders.reduce((sum, o) => sum + o.amount, 0);
+
+// Average
+let avg = totalRevenue / orders.length;
+
+console.log("Total Revenue:", totalRevenue);
+console.log("Average Order:", avg);
+
+//Task 9: Inventory System (Advanced)
+
+let inventory = ["Pen", "Book", "Pencil"];
+
+// Add item
+inventory.push("Bag");
+
+// Remove item
+inventory.pop();
+
+// Update item
+inventory.splice(1, 1, "Notebook");
+
+// Search
+console.log(inventory.includes("Pen"));
+
+// Merge inventory
+let newStock = ["Marker", "Eraser"];
+inventory = [...inventory, ...newStock];
+
+console.log(inventory);
+
+//Task 10: Interview Level Challenge 🔥
+
+function processData(...data) {
+  // Flatten
+  let flat = data.flat(Infinity);
+
+  // Remove duplicates
+  let unique = [...new Set(flat)];
+
+  // Sort ascending
+  return unique.sort((a, b) => a - b);
+}
+
+console.log(processData(1,2,[3,4],[5,[6]]));
+
+  </script>  
+</body>
+</html>
