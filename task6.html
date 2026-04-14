@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+//task1
+        let cart = [
+  {name: "Shirt", price: 500, qty: 2},
+  {name: "Shoes", price: 1500, qty: 1},
+  {name: "Cap", price: 300, qty: 3}
+];
+
+// 
+let total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+console.log("Total:", total);
+
+// 
+let costly = cart.filter(item => item.price > 1000);
+console.log("Above 1000:", costly);
+
+// 
+let names = cart.map(item => item.name.toUpperCase());
+console.log("Uppercase Names:", names);
+
+//task2
+
+let students = [
+  {name: "Arun", marks: 85},
+  {name: "Bala", marks: 45},
+  {name: "Charan", marks: 60},
+  {name: "Divya", marks: 30}
+];
+
+// 
+let failed = students.filter(s => s.marks < 50);
+console.log("Failed:", failed);
+
+// 
+let distinction = students.some(s => s.marks > 80);
+console.log("Any Distinction:", distinction);
+
+// 
+let allPassed = students.every(s => s.marks > 35);
+console.log("All Passed:", allPassed);
+
+// 
+let firstFail = students.find(s => s.marks < 50);
+console.log("First Failed:", firstFail);
+
+//task3
+
+let employees = [
+  {name: "A", salary: 25000},
+  {name: "B", salary: 40000},
+  {name: "C", salary: 15000},
+  {name: "D", salary: 50000}
+];
+
+// 
+let increased = employees.map(e => ({
+  ...e,
+  salary: e.salary * 1.10
+}));
+console.log("Increased Salary:", increased);
+
+// 
+let highSalary = employees.filter(e => e.salary > 30000);
+console.log("High Salary:", highSalary);
+
+// 
+let totalSalary = employees.reduce((sum, e) => sum + e.salary, 0);
+console.log("Total Salary:", totalSalary);
+
+// 
+let sorted = [...employees].sort((a, b) => b.salary - a.salary);
+console.log("Sorted:", sorted);
+
+//task4
+
+let products = ["Laptop", "Mobile", "Tablet", "Camera"];
+
+// 
+console.log(products.includes("Mobile"));
+
+// 
+let lower = products.map(p => p.toLowerCase());
+console.log(lower);
+
+// 
+console.log(products.indexOf("Tablet"));
+
+// 
+console.log(products.join("-"));
+
+//task5
+
+let dob = new Date("2003-01-01"); // change DOB
+let today = new Date();
+
+let age = today.getFullYear() - dob.getFullYear();
+let m = today.getMonth() - dob.getMonth();
+
+if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) {
+  age--;
+}
+
+console.log(`You are ${age} years old`);
+
+//task6
+
+let users = [
+  {username: "admin", password: "1234"},
+  {username: "user", password: "abcd"}
+];
+
+let inputUser = "admin";
+let inputPass = "1234";
+
+let user = users.find(u => u.username === inputUser);
+
+if (user && user.password === inputPass) {
+  console.log("Login Success ✅");
+} else {
+  console.log("Invalid Credentials ❌");
+}
+
+//task7
+
+let numbers = [10, 15, 20, 25, 30];
+
+// 
+let evens = numbers.filter(n => n % 2 === 0);
+console.log("Even:", evens);
+
+// 
+let hasOdd = numbers.some(n => n % 2 !== 0);
+console.log("Any Odd:", hasOdd);
+
+// 
+let allEven = numbers.every(n => n % 2 === 0);
+console.log("All Even:", allEven);
+
+// 
+let first = numbers.find(n => n > 20);
+console.log("First > 20:", first);
+
+
+//bonus challenge
+
+let orders = [
+  {id: 1, amount: 500, status: "delivered"},
+  {id: 2, amount: 1500, status: "pending"},
+  {id: 3, amount: 2000, status: "delivered"}
+];
+
+// 
+let revenue = orders
+  .filter(o => o.status === "delivered")
+  .reduce((sum, o) => sum + o.amount, 0);
+console.log("Revenue:", revenue);
+
+//
+let pending = orders.filter(o => o.status === "pending");
+console.log("Pending:", pending);
+
+// 
+let bigOrder = orders.some(o => o.amount > 1000);
+console.log("Any > 1000:", bigOrder);
+
+// 
+let sortedOrders = [...orders].sort((a, b) => a.amount - b.amount);
+console.log("Sorted:", sortedOrders);
+
+//
+
+    </script>
+</body>
+</html>
