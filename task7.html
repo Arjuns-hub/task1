@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+//task1
+
+        console.log("Order placed");
+
+setTimeout(() => {
+  console.log("Preparing food");
+}, 2000);
+
+setTimeout(() => {
+  console.log("Food ready");
+}, 4000);
+
+setTimeout(() => {
+  console.log("Delivered");
+}, 5000);
+
+//task2
+
+let count = 0;
+
+let clock = setInterval(() => {
+  let now = new Date();
+  console.log(now.toLocaleTimeString());
+
+  count++;
+
+  if (count === 10) {
+    clearInterval(clock);
+    console.log("Clock stopped");
+  }
+}, 1000);
+
+//task3
+
+function loginUser(callback) {
+  setTimeout(() => {
+    console.log("User Logged In");
+    callback();
+  }, 1000);
+}
+
+function getUserData(callback) {
+  setTimeout(() => {
+    console.log("User Data Fetched");
+    callback();
+  }, 1000);
+}
+
+function getUserPosts(callback) {
+  setTimeout(() => {
+    console.log("User Posts Fetched");
+  }, 1000);
+}
+
+// Callback Hell
+loginUser(() => {
+  getUserData(() => {
+    getUserPosts();
+  });
+});
+
+//task4
+
+function getProducts() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      let success = true; // change to false to test error
+
+      if (success) {
+        resolve([
+          { name: "Shirt", price: 500 },
+          { name: "Shoes", price: 1500 }
+        ]);
+      } else {
+        reject("API Failed");
+      }
+    }, 2000);
+  });
+}
+
+// Using Promise
+getProducts()
+  .then((data) => {
+    console.log("Products:", data);
+  })
+  .catch((error) => {
+    console.error(error);
+  })
+  .finally(() => {
+    console.log("Request Completed");
+  });
+    </script>
+</body>
+</html>
